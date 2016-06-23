@@ -1,0 +1,30 @@
+{
+  "name": "pick-my-place",
+  "description": "Pick My Place",
+  "main": "server/app.js",
+  "authors": [
+    "Sergii Tsegelnyk <dr3am3r.ua@gmail.com> (http://serhiy.co/)"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-route": "^1.5.2",
+    "angular-resource": "^1.5.2",
+    "bootstrap": "^3.3.6",
+    "lodash": "~4.6.1",
+    "angular-toastr": "~1.7.0",
+    "angular-ui-clock": "^0.5.1"
+  }
+}

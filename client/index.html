@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pick my place</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/angular-ui-clock/dist/angular-clock.css">
+    <link rel="stylesheet" href="app/styles/app.css">
+    <link rel="stylesheet" href="app/styles/login.css">
+</head>
+<body ng-app="pmp">
+    <div class="container" data-ng-view></div>
+</body>
+<!-- [libraries] -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-ui-clock/dist/angular-clock.js"></script>
+
+<!-- [application] -->
+<script src="app/js/app.js"></script>
+<script src="app/js/interceptors/httpLoginInterceptor.js"></script>
+<script src="app/js/factories/pathManager.js"></script>
+<script src="app/js/routes.js"></script>
+
+<script src="app/js/factories/Place.js"></script>
+<script src="app/js/services/user.service.js"></script>
+<script src="app/js/services/auth.service.js"></script>
+
+<script src="app/js/controllers/loginCtrl.js"></script>
+<script src="app/js/controllers/registerCtrl.js"></script>
+<script src="app/js/controllers/profileCtrl.js"></script>
+</html>

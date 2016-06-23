@@ -1,0 +1,43 @@
+{
+  "name": "fooder",
+  "version": "1.0.0",
+  "description": "social tool for have a lunch",
+  "main": "server.js",
+  "scripts": {
+    "test": "NODE_PATH=. mocha --use_strict test/spec",
+    "test-win": "set NODE_PATH=. && mocha --use_strict test/spec",
+    "start": "node --use_strict server/app.js; exit 0",
+    "cluster": "node --use_strict server/clusterisation.js",
+    "seed": "node db_seed/seed.js || true"
+  },
+  "author": "Andrii Ulianenko <ua.ulin@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gooduling/fooder"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.3.4",
+    "body-parser": "^1.15.0",
+    "colors": "^1.1.2",
+    "connect-ensure-login": "^0.1.1",
+    "cookie-parser": "^1.4.1",
+    "cookie-session": "^1.2.0",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "lodash": "^4.6.1",
+    "mongoose": "^4.4.6",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "mocha": "^2.4.5",
+    "node-mocks-http": "^1.5.2",
+    "should": "^8.2.2",
+    "sinon": "^1.17.3"
+  }
+}

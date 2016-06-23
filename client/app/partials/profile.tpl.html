@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-lg-5"><h1 data-ng-show="profile.email">Welcome, {{profile.email}}</h1></div>
+    <div class="col-lg-2 col-lg-offset-4">
+        <button class="btn btn-lg btn-primary btn-block"  data-ng-click="logout()">Logout</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-5"><h1 data-ng-show="profile.role">You entered as {{profile.role}}.</h1></div>
+</div>
+<ds-widget-clock show-digital digital-format="'EEEE, dd MMMM'"></ds-widget-clock>
+<h2 data-ng-show="profile.availablePlaces.$resolved && profile.availablePlaces.length === 0 && profile.role === 'picker'">
+    Unfortunately no available places at the moment. Please try come back later.
+</h2>
+<div class="table-responsive" data-ng-if="profile.availablePlaces.length > 0  && profile.role === 'picker'">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Number</th>
+            <th>Level</th>
+            <th>Owner</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--Quick hack: don't show place for owner. Should be handled on backend. -->
+        <tr data-ng-repeat="availablePlace in profile.availablePlaces" data-ng-if="profile.email !== availablePlace.owner.email">
+            <td>{{::$index + 1}}</td>
+            <td>{{::availablePlace.number}}</td>
+            <td>{{::availablePlace.level}}</td>
+            <td>{{::availablePlace.owner.email}}</td>
+            <td>{{::availablePlace.description}}</td>
+            <td><button type="button" class="btn btn-success" data-ng-click="rentPlace(availablePlace, $index)">Rent it!</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!--[OWNER]-->
+<div data-ng-if="profile.ownPlace.level">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel" data-ng-class="{
+                                    'panel-primary': !profile.ownPlace.is_occupied && !profile.ownPlace.is_available,
+                                    'panel-danger': !profile.ownPlace.is_occupied && profile.ownPlace.is_available,
+                                    'panel-success': profile.ownPlace.is_occupied}">
+                <div class="panel-heading">
+                    <h3 class="panel-title">My place</h3>
+                </div>
+                <div class="panel-body">
+                    Level: {{::profile.ownPlace.level}}<p>
+                    Number: {{::profile.ownPlace.number}}<p>
+                    Description: {{::profile.ownPlace.description}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <button class="btn btn-lg btn-primary" data-ng-if="!profile.ownPlace.is_occupied && !profile.ownPlace.is_available"  data-ng-click="leasePlace()">Lease it</button>
+            <button class="btn btn-lg btn-primary" data-ng-if="!profile.ownPlace.is_occupied && profile.ownPlace.is_available" data-ng-click="cancelLease()">Cancel lease</button>
+        </div>
+    </div>
+</div>
