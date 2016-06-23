@@ -2,12 +2,12 @@ require('dotenv').load();
 
 var express = require('express'),
     expressSession = require('express-session'),
-  routes = require('./routes'),
-  bodyParser = require('body-parser'),
-  error = require('./lib/middleware/errorHandler'),
-  app = express(),
-  auth = require('./lib/auth'),
-  morgan = require('morgan');
+    routes = require('./routes'),
+    bodyParser = require('body-parser'),
+    error = require('./lib/middleware/errorHandler'),
+    app = express(),
+    auth = require('./lib/auth'),
+    morgan = require('morgan');
 
 require('./lib/db.connector');
 app.use(morgan('combined'));

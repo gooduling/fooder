@@ -6,7 +6,7 @@ var numCPUs = require('os').cpus().length;
 
 var log = function () {
     console.log.apply(console, arguments);
-}
+};
 
 if (cluster.isMaster) {
     log('This is the master process');
